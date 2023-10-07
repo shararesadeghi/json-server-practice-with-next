@@ -1,10 +1,6 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-
 export default function Home({posts}) {
   return (
-    <div className={styles.container}>
+    <div>
        <h3>Next.js</h3>
        <ul>
          {posts.map(post=>(
