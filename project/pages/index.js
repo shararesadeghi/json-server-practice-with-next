@@ -2,22 +2,30 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
-export default function Home({data}) {
+export default function Home({posts}) {
   return (
     <div className={styles.container}>
        <h3>Next.js</h3>
-       <h1>{data}</h1>
+       <ul>
+         {posts.map(post=>(
+           <li key={post.id}>{post.title}</li>
+         ))
+         }
+       </ul>
     </div>
   )
 }
 
 export async function getStaticProps(){
-  //fetch datafrom api
-  const data = "sharareh sadeghi"
+  //fetch data from api
+   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+
+   const data = await res.json();
+
 
   return{
     props:{
-      data
+       posts:data
     }
   }
 }
