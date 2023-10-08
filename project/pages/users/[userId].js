@@ -1,11 +1,11 @@
 import React from 'react';
-import {useRouter, userRouter} from 'next/router';
+//import {useRouter} from 'next/router';
 
 const UserDetails = ({data}) => {
-    const router = useRouter();
-    if(router.isFallback){
-        return <h1>is FallBack!</h1>
-    }
+    // const router = useRouter();
+    // if(router.isFallback){
+    //     return <h1>is FallBack!</h1>
+    // }
     return (
         <div>
             <h1>UserDetail</h1>
@@ -29,7 +29,8 @@ export async function getStaticPaths(){
     return{
         paths,
         //fallback:false,
-        fallback:true,
+        //fallback:true,
+        fallback:"blocking"
 
     }
 }
