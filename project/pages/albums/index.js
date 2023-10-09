@@ -19,7 +19,7 @@ export default Albums;
 
 export async function getServerSideProps(){
 
-    const res = await fetch("https://jsonplaceholder.typicode.com/albums");
+    const res = await fetch(" http://localhost:4000/albums");
     const data = await res.json();
 
     return{
