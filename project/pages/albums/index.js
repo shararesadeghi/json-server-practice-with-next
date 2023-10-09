@@ -17,10 +17,12 @@ const Albums = ({albums}) => {
 
 export default Albums;
 
-export async function getServerSideProps(){
+export async function getServerSideProps(context){
 
-    const res = await fetch(" http://localhost:4000/albums");
-    const data = await res.json();
+    const {params, req, res} = context;
+    console.log(req)
+    const response = await fetch(" http://localhost:4000/albums");
+    const data = await response.json();
 
     return{
         props:{
