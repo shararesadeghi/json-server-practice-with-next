@@ -1,6 +1,7 @@
 //import React, { useEffect, useState } from 'react';
 import React from "react";
 import useSWR from 'swr';
+import Link from 'next/link';
 
 const url = "http://localhost:4000/todos";
 
@@ -17,10 +18,10 @@ const Todos = () => {
     // },[])
 
     const {data, error} = useSWR(url, fetcher);  
-    
+
     return (
         <div>
-            {data ? (data.map(todo=><h3 key={todo.id}>{todo.title}</h3>)):(<h1>Loading...</h1>)}
+            {data ? (data.map(todo=><Link key={todo.id} href={`/todos/${todo.id}`}><h3>{todo.title}</h3></Link>)):(<h1>Loading...</h1>)}
            {/* {todos.length ? (todos.map(todo=><h3 key={todo.id}>{todo.title}</h3>)): (<h1>Loading...</h1>)}  */}
 
         </div>
